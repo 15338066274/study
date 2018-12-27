@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.0.xsd"
+       default-autowire="byName">
+
+	<!-- 扫描框架相关的服务包 @Service/@Repository-->
+    <context:component-scan base-package="com.zhidian">
+    	<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+    
+    <!-- dao基础服务 -->
+    <bean id="dao" class="net.jhelp.maas.mybatis.MybatisDaoSupport" init-method="init">
+        <property name="sqlSessionFactory">
+            <ref bean="zhiDianSqlSessionFactory"/>
+        </property>
+        <!-- <property name="customCmd" value="net.jhelp.core.mybatis.NewPageCmd"/> -->
+    </bean>
+<!-- service facade 服务-->
+    <bean id="svrMain" class="net.jhelp.maas.spring.SpringMaasBus"></bean>
+
+    <bean class="com.zhidian.cmb.startup.LoadVariablePPostProcessor"  />
+
+    <bean class="com.zhidian.cloud.common.core.mq.MqV2Service">
+        <constructor-arg index="0" value="${mq.transferServer.v2}"/>
+    </bean>
+</beans>

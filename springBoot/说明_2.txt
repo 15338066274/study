@@ -1,0 +1,56 @@
+1.JDK为免安装版，解压后配置环境变量即可，如下所示：
+	JAVA_HOME=D:\software\jdk1.8.0_65\jdk1.8.0_65
+	classpath=.;%JAVA_HOME%\bin;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar
+	Path=.;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;
+
+2.maven先解压，然后执行以下操作：
+	1）设置环境变更，如下所示：
+		M2_HOME=D:\software\maven\apache-maven-3.5.3-bin\apache-maven-3.5.3
+		Path=.;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;%M2_HOME%\bin;
+		MAVEN_OPTS=-Xms128m  -Xmx512m
+	2）在命令窗口执行以下命令检查maven安装情况：
+		echo %M2_HOME%  回车
+		mvn -v 		回车
+	3）将settings.xml文件拷贝到“~m2\”目录下
+	4) 在命令窗口执行“mvn help:system”，把maven的相关依赖库下载到本地仓库
+
+3.tomcat为免安装版，解压即可；
+
+4.eclipse 为免安装版，解压后直接使用；打开eclipse，执行如下操作：
+	1）Windows -> Preferences -> Java -> Installed JREs -> Add Standard VM，指定JDK的全路径，如果已存在，则检查是否正确 （Add 或 Edit JRE时，在“Default VM arguments”添加 “-Dmaven.multiModuleProjectDirectory=$M2_HOME”）
+	2）Windows -> Preferences -> Maven -> Installations -> Add （选择Maven安装目录M2_HOME，添加完毕后选择这个即可）
+	3）Windows -> Preferences -> Maven -> User Settings （设置settings.xml文件的本地路径）
+	4）从SVN获取Maven项目
+		赛事分享平台：http://192.168.50.250/usvn/svn/competitionShare/trunk/code/competitionShare
+		赛事分享平台后台管理系统：http://192.168.50.250/usvn/svn/competitionShareBackstage/trunk/code/competitionShareBackstage
+
+	5）右击项目 -> Properties -> Java Compiler -> Compiler compliance level:1.8
+	6）在eclipse的server中已添加tomcat；只须修改“Tomcat installation directory”和“JRE”即可；并将项目添加到tomcat中
+	7）项目构建
+	8）tomcat启动
+	9）验证是否成功
+
+5.去掉eclipse项目上的红叉，如下：
+	1）去掉 eclipse 中的项目的JS文件报错信息：https://blog.csdn.net/china_bobo/article/details/53667731
+	2）将各种版本统一调整为1.8（https://jingyan.baidu.com/article/95c9d20da3ec5fec4e756186.html）
+	3）修改“Dynamic Web Module”为3.0（https://blog.csdn.net/gaga2284/article/details/70850445）
+	4）项目没有错误，但是项目名称上有红叉（Project configuration is not up-to-date with pom.xml），解决方案为：Project configuration is not up-to-date with pom.xml.   右击项目 -》 Maven -》 Update Project... -》 勾选当前项目并执行OK即可
+
+6.项目结构调整时，根据项目类型采用不同的方式创建项目，具体如下：
+	1）pom , jar ：
+		File -> New -> Project -> Maven Project -> 不勾选“Create a simple project(skip archetype selection)” -> Next -> 选中“Artifact Id:maven-archetype-quickstart” -> 点击“Next” -> 输入“Group Id , Artifact Id , Version , Package” -> 点击Finish即可。
+	2）war：
+		File -> New -> Project -> Maven Project -> 勾选“Create a simple project(skip archetype selection)” -> Next -> 输入“Group Id , Artifact Id , Version , Package” -> 点击Finish即可。
+
+7.处理问题（pom.xml）：org.apache.maven.archiver.MavenArchiver.getManifest(org.apache.maven.project.MavenProject, org.apache.maven.archiver.MavenArchiveConfiguration)
+	1) 参照“https://www.jianshu.com/p/bc39b291d0f2”执行
+	2）重建项目即可
+
+
+8.安装navicat
+    1)双击运行“navicat_trial_11.1.20.0.1449226634.exe”完成安装；
+    2）双击“PatchNavicat.exe”，指定已安装有运行文件来进行打补丁。（C:\Program Files (x86)\PremiumSoft\Navicat for MySQL\navicat.exe）
+
+
+问题：构建时执行“clean deploy”失败
+
