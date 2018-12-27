@@ -2668,3 +2668,4 @@ org.eclipse.core.runtime.CoreException: Launch configuration HelloWorldApplicati
 2018-12-27 09:29:18,966 [Worker-526: Building workspace] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
 2018-12-27 09:29:20,141 [Worker-530: Building workspace] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
 2018-12-27 09:29:24,912 [Worker-530: Building workspace] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
+2018-12-27 10:39:28,153 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
