@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<item value="2" key="org.eclipse.egit.ui.internal.clone.GitSelectWizardPageWizardSel"/>
 	<list key="RepositorySelectionPage.UsedUris">
+		<item value="https://github.com/"/>
 		<item value="https://github.com/15338066274/mygitremote.git"/>
 		<item value="http://192.168.199.13:8000/zhidian-modules/withdraw.git"/>
 		<item value="http://192.168.199.13:8000/settlement/zhidian-cmb.git"/>

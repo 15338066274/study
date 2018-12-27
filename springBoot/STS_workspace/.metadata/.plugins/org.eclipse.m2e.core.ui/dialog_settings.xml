@@ -6,12 +6,12 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="F:\study\springBoot\STS_workspace\HelloWorld"/>
 			<item value="F:\study\springBoot\STS_workspace\mygitremote\mygitremote"/>
 			<item value="F:\study\springBoot\STS_workspace\mygitremote\mygitremote\mygitremote"/>
 			<item value="F:\study\springBoot\STS_workspace\mygitremote\HelloWorld"/>
 			<item value="F:\study\springBoot\STS_workspace\withdraw"/>
 			<item value="F:\study\springBoot\STS_workspace\zhidian-cmb"/>
-			<item value="F:\study\springBoot\STS_workspace\HelloWorld"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
